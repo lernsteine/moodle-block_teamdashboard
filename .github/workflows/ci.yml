@@ -1,0 +1,13 @@
+name: Moodle Plugin CI
+
+on: [push, pull_request]
+
+jobs:
+  run-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Moodle Plugin CI
+        run: curl -sS https://raw.githubusercontent.com/moodlehq/moodle-plugin-ci/master/install.sh | bash
+      - name: Run full CI test
+        run: php moodle-plugin-ci.php full

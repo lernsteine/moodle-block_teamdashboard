@@ -1,0 +1,20 @@
+<?php
+$string['pluginname'] = 'Team Dashboard';
+$string['participantslabel'] = 'Participants';
+$string['legend_completed'] = 'Completed';
+$string['legend_inprogress'] = 'In progress';
+$string['legend_overdue'] = 'Overdue';
+$string['privacy:metadata'] = 'The Team Dashboard block does not store any personal data.';
+$string['pluginname'] = 'Team Dashboard';
+$string['teamdashboard:addinstance'] = 'Add a new Team Dashboard block';
+$string['teamdashboard:myaddinstance'] = 'Add a new Team Dashboard block to the general Dashboard';
+$string['pluginname'] = 'Team Dashboard';
+$string['teamdashboard:addinstance'] = 'Add a new Team Dashboard block';
+$string['teamdashboard:myaddinstance'] = 'Add a new Team Dashboard block to the My Moodle page';
+$string['nextpage'] = 'Show more courses';
+$string['errornoteacherrole'] = 'Role "teacher" not found.';
+$string['nextpage'] = 'Show more courses';
+$string['errornoteacherrole'] = 'Role "teacher" or "student" not found.';
+$string['legend_completed'] = 'Completed';
+$string['legend_inprogress'] = 'In progress';
+$string['legend_overdue'] = 'Overdue';
