@@ -21,8 +21,7 @@
  * @copyright  2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
- 
- 
+
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/completionlib.php');
@@ -32,20 +31,20 @@ require_once($CFG->libdir . '/completionlib.php');
  */
 class block_teamdashboard extends block_base {
 
-/**
- * Initializes the block.
- */
-public function init() {
-    $this->title = get_string('pluginname', 'block_teamdashboard');
+    /**
+     * Initializes the block.
+     */
+    public function init() {
+        $this->title = get_string('pluginname', 'block_teamdashboard');
     }
 
-/**
- * Returns the block content.
- *
- * @return stdClass|null
- */
-public function get_content() {
-    global $OUTPUT, $USER, $DB;
+    /**
+     * Returns the block content.
+     *
+     * @return stdClass|null
+     */
+    public function get_content() {
+        global $OUTPUT, $USER, $DB;
 
         if ($this->content !== null) {
             return $this->content;
@@ -130,7 +129,7 @@ public function get_content() {
                     'completed' => round($completed / $total * 100),
                     'inprogress' => round($inprogress / $total * 100),
                     'overdue' => round($overdue / $total * 100),
-                ]
+                ],
             ];
         }
 
@@ -150,4 +149,3 @@ public function get_content() {
         return $this->content;
     }
 }
-
