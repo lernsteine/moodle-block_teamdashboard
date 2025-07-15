@@ -15,6 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Privacy provider for block_teamdashboard.
+ *
  * @package    block_teamdashboard
  * @copyright  2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -148,3 +150,4 @@ public function get_content() {
         return $this->content;
     }
 }
+
