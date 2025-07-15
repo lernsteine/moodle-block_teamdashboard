@@ -15,11 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Version information for the block_teamdashboard plugin.
+ *
  * @package    block_teamdashboard
  * @copyright  2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 
 defined('MOODLE_INTERNAL') || die();
 

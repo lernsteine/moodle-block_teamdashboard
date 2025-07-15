@@ -15,10 +15,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace block_teamdashboard\privacy;
-
-use core_privacy\local\metadata\null_provider;
-
 /**
  * Privacy Subsystem for block_teamdashboard.
  *
@@ -26,6 +22,9 @@ use core_privacy\local\metadata\null_provider;
  * @copyright 2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+ 
+namespace block_teamdashboard\privacy;
+use core_privacy\local\metadata\null_provider;
 class provider implements null_provider {
 
     /**

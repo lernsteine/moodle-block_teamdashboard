@@ -33,8 +33,8 @@ class block_teamdashboard extends block_base {
 /**
  * Initializes the block.
  */
-    public function init() {
-        $this->title = get_string('pluginname', 'block_teamdashboard');
+public function init() {
+    $this->title = get_string('pluginname', 'block_teamdashboard');
     }
 
 /**
@@ -42,8 +42,8 @@ class block_teamdashboard extends block_base {
  *
  * @return stdClass|null
  */
-    public function get_content() {
-        global $OUTPUT, $USER, $DB;
+public function get_content() {
+    global $OUTPUT, $USER, $DB;
 
         if ($this->content !== null) {
             return $this->content;
