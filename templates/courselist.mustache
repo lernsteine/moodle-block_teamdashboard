@@ -1,28 +1,28 @@
 {{!
-    @template block_teamdashboard/courselist
-    Example context (JSON):
-    {
-        "courses": [
-            {
-                "name": "Course 1",
-                "url": "https://moodle.example.com/course/view.php?id=1",
-                "progress": {
-                    "completed": 50,
-                    "inprogress": 30,
-                    "overdue": 20
-                },
-                "participants": 15
-            }
-        ],
-        "legend_completed": "Abgeschlossen",
-        "legend_inprogress": "In Bearbeitung",
-        "legend_overdue": "Überfällig",
-        "hasnext": true,
-        "nexturl": "https://moodle.example.com/page=2",
-        "nextlabel": "Mehr anzeigen"
-    }
-}}
+@template block_teamdashboard/courselist
 
+Example context (JSON):
+{
+    "courses": [
+        {
+            "name": "Course 1",
+            "url": "https://moodle.example.com/course/view.php?id=1",
+            "progress": {
+                "completed": 50,
+                "inprogress": 30,
+                "overdue": 20
+            },
+            "participants": 15
+        }
+    ],
+    "legend_completed": "Abgeschlossen",
+    "legend_inprogress": "In Bearbeitung",
+    "legend_overdue": "Überfällig",
+    "hasnext": true,
+    "nexturl": "https://moodle.example.com/page=2",
+    "nextlabel": "Mehr anzeigen"
+}
+}}
 
 <div style="font-family:Arial,sans-serif; font-size:0.95em; max-width:800px;">
 
@@ -43,10 +43,8 @@
     {{#courses}}
         <div style="border:1px solid #ddd; border-radius:8px; padding:12px; margin-bottom:12px;">
             <h3 class="teamdashboard-course-title">
-    <a href="{{url}}" style="color:inherit; text-decoration:none;">{{name}}</a>
-</h3>
-
-
+                <a href="{{url}}" style="color:inherit; text-decoration:none;">{{name}}</a>
+            </h3>
 
             <div style="background:#eee; height:14px; border-radius:6px; overflow:hidden; margin:6px 0 12px 0;">
                 <div style="background:#4caf50; width:{{progress.completed}}%; height:14px; float:left;"></div>
