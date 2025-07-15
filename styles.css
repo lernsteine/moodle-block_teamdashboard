@@ -5,38 +5,50 @@
  */
 
 .block_teamdashboard .bar {
-  display: flex;
-  height: 16px;
-  overflow: hidden;
-  background: #eee;
-  border-radius: 4px;
+    display: flex;
+    height: 16px; 
+    overflow: hidden;
+    background: #eee;
+    border-radius: 4px;
 }
-.block_teamdashboard .green { background: #4caf50; }
-.block_teamdashboard .yellow { background: #ffeb3b; }
-.block_teamdashboard .red { background: #e74c3c; }
+.block_teamdashboard .green { 
+    background: #4caf50; 
+	}
+	
+.block_teamdashboard .yellow {
+	background: #ffeb3b; 
+	}
+	
+.block_teamdashboard .red { 
+    background: #e74c3c; 
+	}
+	
 .block_teamdashboard .legend {
-  font-size: 0.75em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.8em;
-  margin-bottom: 1em;
+    font-size: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.8em;
+    margin-bottom: 1em;
 }
+
 .block_teamdashboard .legend span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2em;
 }
+
 .block_teamdashboard .legend-box {
-  width: 12px;
-  height: 8px;
-  border-radius: 2px;
-  display: inline-block;
+    width: 12px;
+    height: 8px;
+    border-radius: 2px;
+    display: inline-block;
 }
+
 .block_teamdashboard .participant-count {
-  font-size: 0.85em;
-  color: #666;
-  margin-top: 6px;
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 6px;
 }
 
 .teamdashboard-course-title {

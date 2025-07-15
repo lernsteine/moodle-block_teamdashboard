@@ -25,12 +25,23 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/completionlib.php');
 
+/**
+ * Class block_teamdashboard represents the Teamdashboard block.
+ */
 class block_teamdashboard extends block_base {
 
+/**
+ * Initializes the block.
+ */
     public function init() {
         $this->title = get_string('pluginname', 'block_teamdashboard');
     }
 
+/**
+ * Returns the block content.
+ *
+ * @return stdClass|null
+ */
     public function get_content() {
         global $OUTPUT, $USER, $DB;
 
@@ -100,7 +111,7 @@ class block_teamdashboard extends block_base {
 
                 if ($completion->is_course_complete($user->id)) {
                     $completed++;
-                } elseif (!empty($course->enddate) && $now > $course->enddate) {
+                } else if (!empty($course->enddate) && $now > $course->enddate) {
                     $overdue++;
                 } else {
                     $inprogress++;
@@ -116,7 +127,7 @@ class block_teamdashboard extends block_base {
                 'progress' => [
                     'completed' => round($completed / $total * 100),
                     'inprogress' => round($inprogress / $total * 100),
-                    'overdue' => round($overdue / $total * 100)
+                    'overdue' => round($overdue / $total * 100),
                 ]
             ];
         }
@@ -130,7 +141,7 @@ class block_teamdashboard extends block_base {
             'nextlabel' => get_string('nextpage', 'block_teamdashboard'),
             'legend_completed' => get_string('legend_completed', 'block_teamdashboard'),
             'legend_inprogress' => get_string('legend_inprogress', 'block_teamdashboard'),
-            'legend_overdue' => get_string('legend_overdue', 'block_teamdashboard')
+            'legend_overdue' => get_string('legend_overdue', 'block_teamdashboard'),
         ];
 
         $this->content->text = $OUTPUT->render_from_template('block_teamdashboard/courselist', $templatecontext);
