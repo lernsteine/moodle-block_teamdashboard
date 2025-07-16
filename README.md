@@ -25,7 +25,7 @@ This plugin does **not** store any personal user data. It implements Moodle's Pr
 
 ## 🖼 Screenshots
 
-![Dashboard image] [dashboard_example.png)
+![Dashboard image] (dashboard_example.png)
 
 ## 🧩 Compatibility
 
