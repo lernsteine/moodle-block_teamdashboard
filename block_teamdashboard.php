@@ -26,23 +26,12 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/completionlib.php');
 
-/**
- * Class block_teamdashboard represents the Teamdashboard block.
- */
 class block_teamdashboard extends block_base {
 
-    /**
-     * Initializes the block.
-     */
     public function init() {
         $this->title = get_string('pluginname', 'block_teamdashboard');
     }
 
-    /**
-     * Returns the block content.
-     *
-     * @return stdClass|null
-     */
     public function get_content() {
         global $OUTPUT, $USER, $DB;
 
@@ -52,10 +41,11 @@ class block_teamdashboard extends block_base {
 
         $this->content = new stdClass();
 
-        $perpage = 20;
+        $perpage = 4;
         $page = optional_param('tdpage', 0, PARAM_INT);
         $offset = $page * $perpage;
 
+        // Rollen laden.
         $teacherrole = $DB->get_record('role', ['shortname' => 'teacher']);
         $studentrole = $DB->get_record('role', ['shortname' => 'student']);
         if (!$teacherrole || !$studentrole) {
@@ -63,23 +53,28 @@ class block_teamdashboard extends block_base {
             return $this->content;
         }
 
-        $sql = "
-            SELECT * FROM {course}
-            WHERE visible = 1 AND id > 1
-            ORDER BY sortorder ASC
-            LIMIT $perpage OFFSET $offset
-        ";
-        $courses = $DB->get_records_sql($sql);
+        // Alle sichtbaren Kurse holen.
+        $sql = "SELECT * FROM {course} WHERE visible = 1 AND id > 1 ORDER BY sortorder ASC";
+        $allcourses = $DB->get_records_sql($sql);
+
+        // Nur Kurse mit Teacher-Rolle.
+        $teacherCourses = [];
+        foreach ($allcourses as $course) {
+            $context = context_course::instance($course->id);
+            if (user_has_role_assignment($USER->id, $teacherrole->id, $context->id)) {
+                $teacherCourses[] = $course;
+            }
+        }
+
+        // Pagination nach Filterung.
+        $totalteacher = count($teacherCourses);
+        $paginatedCourses = array_slice($teacherCourses, $offset, $perpage);
 
         $coursedata = [];
         $now = time();
 
-        foreach ($courses as $course) {
+        foreach ($paginatedCourses as $course) {
             $context = context_course::instance($course->id);
-            if (!user_has_role_assignment($USER->id, $teacherrole->id, $context->id)) {
-                continue;
-            }
-
             $groupmode = groups_get_course_groupmode($course);
             $canseeallgroups = has_capability('moodle/site:accessallgroups', $context);
             $users = [];
@@ -133,12 +128,17 @@ class block_teamdashboard extends block_base {
             ];
         }
 
+        // Navigation URLs.
+        $prevurl = new moodle_url($this->page->url, ['tdpage' => max(0, $page - 1)]);
         $nexturl = new moodle_url($this->page->url, ['tdpage' => $page + 1]);
 
+        // Template-Kontext.
         $templatecontext = [
             'courses' => $coursedata,
-            'hasnext' => count($courses) === $perpage,
+            'hasnext' => ($offset + $perpage) < $totalteacher,
+            'hasprev' => $page > 0,
             'nexturl' => $nexturl->out(),
+            'prevurl' => $prevurl->out(),
             'nextlabel' => get_string('nextpage', 'block_teamdashboard'),
             'legend_completed' => get_string('legend_completed', 'block_teamdashboard'),
             'legend_inprogress' => get_string('legend_inprogress', 'block_teamdashboard'),
