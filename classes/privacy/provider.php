@@ -28,7 +28,6 @@ use core_privacy\local\metadata\collection;
 
 /**
  * Privacy provider implementation for block_teamdashboard.
- *
  * This plugin does not store any personal data.
  *
  * @package    block_teamdashboard
