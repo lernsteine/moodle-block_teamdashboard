@@ -36,7 +36,7 @@ Tested with Moodle 4.5 and 4.6. Requires course completion tracking to be enable
 This plugin is licensed under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html).  
 Copyright (C) 2024.
 
-Developed and maintained by [Your Name or Institution].
+Developed and maintained by Ralf Hagemeister
 
 ---
 
