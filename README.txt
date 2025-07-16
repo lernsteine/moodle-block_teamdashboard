@@ -9,5 +9,5 @@ Installation:
 1. Unzip this plugin into your Moodle /blocks/ directory.
 2. Visit Site Administration > Notifications to complete installation.
 
-Maintained by: Your Name
+Maintained by: Ralf Hagemeister
 License: GNU GPL v3 or later
