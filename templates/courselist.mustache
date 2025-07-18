@@ -57,19 +57,19 @@
             </div>
 
             <div style="font-size:0.9em; color:#666;">
-                👥 Teilnehmer/innen: {{participants}}
+                👥 {{label_participants}}: {{participants}}
             </div>
         </div>
     {{/courses}}
 
     <!-- Pagination -->
-    <div style="text-align:center; margin-top:0em;">
+    <div style="text-align:right; margin-top:0em;">
         {{#hasprev}}
-            <a href="{{prevurl}}" style="font-size:1.5em; font-weight:bold; color:#333; text-decoration:none; margin-right:1em;">🡄</a>
+            <a href="{{prevurl}}" style="font-size:1.3em; font-weight:bold; color:#333; text-decoration:none; margin-right:1em;">◀◀</a>
         {{/hasprev}}
 
         {{#hasnext}}
-            <a href="{{nexturl}}" style="font-size:1.5em; font-weight:bold; color:#333; text-decoration:none;">🡆</a>
+            <a href="{{nexturl}}" style="font-size:1.3em; font-weight:bold; color:#333; text-decoration:none;">▶▶</a>
         {{/hasnext}}
     </div>
 </div>
