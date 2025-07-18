@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy provider for block_teamdashboard.
+ * Block definition for block_teamdashboard.
  *
  * @package    block_teamdashboard
  * @copyright  2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
@@ -26,12 +26,23 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/completionlib.php');
 
+/**
+ * Class block_teamdashboard represents the Teamdashboard block.
+ */
 class block_teamdashboard extends block_base {
 
+    /**
+     * Sets the title of the block.
+     */
     public function init() {
         $this->title = get_string('pluginname', 'block_teamdashboard');
     }
 
+    /**
+     * Returns the block content.
+     *
+     * @return stdClass|null
+     */
     public function get_content() {
         global $OUTPUT, $USER, $DB;
 
@@ -58,22 +69,22 @@ class block_teamdashboard extends block_base {
         $allcourses = $DB->get_records_sql($sql);
 
         // Nur Kurse mit Teacher-Rolle.
-        $teacherCourses = [];
+        $teachercourses = [];
         foreach ($allcourses as $course) {
             $context = context_course::instance($course->id);
             if (user_has_role_assignment($USER->id, $teacherrole->id, $context->id)) {
-                $teacherCourses[] = $course;
+                $teachercourses[] = $course;
             }
         }
 
         // Pagination nach Filterung.
-        $totalteacher = count($teacherCourses);
-        $paginatedCourses = array_slice($teacherCourses, $offset, $perpage);
+        $totalteacher = count($teachercourses);
+        $paginatedcourses = array_slice($teachercourses, $offset, $perpage);
 
         $coursedata = [];
         $now = time();
 
-        foreach ($paginatedCourses as $course) {
+        foreach ($paginatedcourses as $course) {
             $context = context_course::instance($course->id);
             $groupmode = groups_get_course_groupmode($course);
             $canseeallgroups = has_capability('moodle/site:accessallgroups', $context);
@@ -97,7 +108,9 @@ class block_teamdashboard extends block_base {
 
             $completion = new completion_info($course);
             $hascompletion = $completion->is_enabled();
-            $completed = $inprogress = $overdue = 0;
+            $completed = 0;
+            $inprogress = 0;
+            $overdue = 0;
 
             foreach ($students as $user) {
                 if (!$hascompletion) {
