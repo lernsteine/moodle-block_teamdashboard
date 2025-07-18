@@ -156,6 +156,7 @@ class block_teamdashboard extends block_base {
             'legend_completed' => get_string('legend_completed', 'block_teamdashboard'),
             'legend_inprogress' => get_string('legend_inprogress', 'block_teamdashboard'),
             'legend_overdue' => get_string('legend_overdue', 'block_teamdashboard'),
+			'label_participants' => get_string('label_participants', 'block_teamdashboard'),
         ];
 
         $this->content->text = $OUTPUT->render_from_template('block_teamdashboard/courselist', $templatecontext);
