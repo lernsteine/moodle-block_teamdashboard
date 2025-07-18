@@ -23,7 +23,7 @@
  */
 
 $string['pluginname'] = 'Team Dashboard';
-$string['participantslabel'] = 'Participants';
+$string['label_participants'] = 'Participants';
 $string['legend_completed'] = 'Completed';
 $string['legend_inprogress'] = 'In progress';
 $string['legend_overdue'] = 'Overdue';
