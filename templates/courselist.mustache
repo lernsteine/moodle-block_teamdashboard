@@ -1,30 +1,33 @@
 {{!
-@template block_teamdashboard/block_teamdashboard
-This template renders categorized courses in Statusbars for leaders.
-Example context (JSON):
-{
-    "courses": [
-        {
-            "name": "Compliance",
-            "url": "https://moodle.example.com/course/view.php?id=1",
-            "progress": {
-                "completed": 50,
-                "inprogress": 30,
-                "overdue": 20
-            },
-            "participants": 15
-        }
-    ],
-    "legend_completed": "Abgeschlossen",
-    "legend_inprogress": "In Bearbeitung",
-    "legend_overdue": "Überfällig",
-    "hasprev": true,
-    "prevurl": "https://moodle.example.com/page=1",
-    "hasnext": true,
-    "nexturl": "https://moodle.example.com/page=3",
-    "nextlabel": "Mehr anzeigen"
-}
+    @template block_teamdashboard/courselist
+
+    This template renders categorized courses in Statusbars for leaders.
+
+    Example context (json):
+    {
+        "courses": [
+            {
+                "name": "Compliance",
+                "url": "https://moodle.example.com/course/view.php?id=1",
+                "progress": {
+                    "completed": 50,
+                    "inprogress": 30,
+                    "overdue": 20
+                },
+                "participants": 15
+            }
+        ],
+        "legend_completed": "Abgeschlossen",
+        "legend_inprogress": "In Bearbeitung",
+        "legend_overdue": "Überfällig",
+        "hasprev": true,
+        "prevurl": "https://moodle.example.com/page=1",
+        "hasnext": true,
+        "nexturl": "https://moodle.example.com/page=3",
+        "nextlabel": "Mehr anzeigen"
+    }
 }}
+
 <div style="font-family:Arial,sans-serif; font-size:0.95em; max-width:800px;">
 
     <!-- Legende -->
