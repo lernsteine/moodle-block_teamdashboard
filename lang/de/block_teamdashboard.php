@@ -24,7 +24,7 @@
 
 
 $string['pluginname'] = 'Team Dashboard';
-$string['participantslabel'] = 'Teilnehmer/innen';
+$string['label_participants'] = 'Teilnehmer/innen';
 $string['legend_completed'] = 'Abgeschlossen';
 $string['legend_inprogress'] = 'In Bearbeitung';
 $string['legend_overdue'] = 'Überfällig';
