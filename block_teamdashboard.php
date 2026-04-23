@@ -30,7 +30,6 @@ require_once($CFG->libdir . '/completionlib.php');
  * Class block_teamdashboard represents the Teamdashboard block.
  */
 class block_teamdashboard extends block_base {
-
     /**
      * Sets the title of the block.
      */
@@ -102,7 +101,7 @@ class block_teamdashboard extends block_base {
                 $users = get_enrolled_users($context, 'moodle/course:viewparticipants');
             }
 
-            $students = array_filter($users, function($u) use ($studentrole, $context) {
+            $students = array_filter($users, function ($u) use ($studentrole, $context) {
                 return user_has_role_assignment($u->id, $studentrole->id, $context->id);
             });
 
