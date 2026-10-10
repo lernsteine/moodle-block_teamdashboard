@@ -22,10 +22,9 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
-$string['pluginname'] = 'Team Dashboard';
 $string['label_participants'] = 'Teilnehmer/innen';
 $string['legend_completed'] = 'Abgeschlossen';
 $string['legend_inprogress'] = 'In Bearbeitung';
 $string['legend_overdue'] = 'Überfällig';
+$string['pluginname'] = 'Team Dashboard';
 $string['privacy:metadata'] = 'Das Team-Dashboard speichert keine personenbezogenen Daten.';
