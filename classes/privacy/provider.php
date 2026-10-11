@@ -24,8 +24,6 @@
 
 namespace block_teamdashboard\privacy;
 
-use core_privacy\local\metadata\collection;
-
 /**
  * Privacy provider implementation for block_teamdashboard.
  * This plugin does not store any personal data.
@@ -34,15 +32,13 @@ use core_privacy\local\metadata\collection;
  * @copyright  2025 Ralf Hagemeister <ralf.hagemeister@lernsteine.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class provider implements \core_privacy\local\metadata\provider {
+class provider implements \core_privacy\local\metadata\null_provider {
     /**
-     * Get metadata.
+     * Return the privacy language string identifier.
      *
-     * @param collection $collection The initialised collection to add items to.
-     * @return collection The updated collection.
+     * @return string
      */
-    public static function get_metadata(collection $collection): collection {
-        // This block does not store any personal data.
-        return $collection;
+    public static function get_reason(): string {
+        return 'privacy:metadata';
     }
 }
